@@ -8,7 +8,7 @@ export function SiteFooter() {
             List your home
           </a>
           {" · "}
-          Prices in INR
+          Prices in INR · checkout day is free for the next guest
         </p>
       </div>
     </footer>
