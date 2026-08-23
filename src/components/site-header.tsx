@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getOwnerSession } from "@/lib/owner-auth";
 
 export async function SiteHeader() {
-  const owner = await getOwnerSession();
+  const owner = await getOwnerSession().catch(() => null);
 
   return (
     <header className="border-b border-[var(--border)] bg-[var(--paper)]/90 backdrop-blur">
@@ -11,9 +11,7 @@ export async function SiteHeader() {
           Bangalore Stays
         </Link>
         <nav className="flex items-center gap-4 text-sm">
-          <Link href="/" className="hidden text-[var(--muted)] sm:inline">
-            Homes
-          </Link>
+          <p className="hidden text-[var(--muted)] sm:block">Six homes in and around Bengaluru</p>
           {owner ? (
             <Link href="/owners/dashboard" className="text-[var(--accent)]">
               Owner dashboard
