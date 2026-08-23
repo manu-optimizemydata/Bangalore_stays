@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum BookingStatus {
+  pending
+  confirmed
+  cancelled
+  completed
+}
+
+enum PayoutStatus {
+  pending
+  paid
+}
+
+model Property {
+  id                String    @id @default(cuid())
+  name              String
+  address           String
+  city              String
+  description       String
+  amenities         String[]
+  basePricePerNight Int       @map("base_price_per_night")
+  photos            String[]
+  active            Boolean   @default(true)
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  bookings          Booking[]
+
+  @@map("properties")
+}
+
+model Booking {
+  id          String        @id @default(cuid())
+  propertyId  String        @map("property_id")
+  property    Property      @relation(fields: [propertyId], references: [id])
+  guestName   String        @map("guest_name")
+  guestEmail  String        @map("guest_email")
+  guestPhone  String        @map("guest_phone")
+  checkIn     DateTime      @map("check_in") @db.Date
+  checkOut    DateTime      @map("check_out") @db.Date
+  status      BookingStatus @default(pending)
+  totalAmount Int           @map("total_amount")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  ledger      Ledger[]
+
+  @@map("bookings")
+}
+
+model Ledger {
+  id                 String       @id @default(cuid())
+  bookingId          String       @map("booking_id")
+  booking            Booking      @relation(fields: [bookingId], references: [id])
+  totalAmount        Int          @map("total_amount")
+  platformCommission Int          @map("platform_commission")
+  ownerPayout        Int          @map("owner_payout")
+  currency           String       @default("INR")
+  payoutStatus       PayoutStatus @default(pending) @map("payout_status")
+  createdAt          DateTime     @default(now()) @map("created_at")
+
+  @@map("ledger")
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-label="Bannerghatta Forest Villa">
+  <rect width="1600" height="1200" fill="#dce8d4"/>
+  <rect y="820" width="1600" height="380" fill="#6f8a4e"/>
+  <rect x="260" y="480" width="1080" height="420" fill="#f6efe4"/>
+  <polygon points="240,480 800,250 1360,480" fill="#3d4f33"/>
+  <rect x="400" y="560" width="150" height="130" fill="#8fb8c9"/>
+  <rect x="1050" y="560" width="150" height="130" fill="#8fb8c9"/>
+  <rect x="720" y="680" width="160" height="220" fill="#2f2416"/>
+  <circle cx="180" cy="700" r="80" fill="#3f6b38"/>
+  <circle cx="1420" cy="680" r="100" fill="#355c30"/>
+</svg>

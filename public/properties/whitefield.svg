@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-label="Whitefield Garden Suite">
+  <rect width="1600" height="1200" fill="#e8f0e4"/>
+  <rect y="860" width="1600" height="340" fill="#8aa56b"/>
+  <rect x="180" y="420" width="900" height="520" fill="#f7f1e8"/>
+  <rect x="180" y="360" width="900" height="70" fill="#9a4a24"/>
+  <rect x="280" y="500" width="180" height="160" fill="#8fb8c9"/>
+  <rect x="520" y="500" width="180" height="160" fill="#8fb8c9"/>
+  <rect x="760" y="620" width="140" height="320" fill="#2f2416"/>
+  <circle cx="1280" cy="620" r="90" fill="#6f8f4e"/>
+  <circle cx="1380" cy="700" r="70" fill="#55763a"/>
+  <circle cx="1220" cy="720" r="55" fill="#7ea35a"/>
+</svg>

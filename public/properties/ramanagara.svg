@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-label="Ramanagara Ridge Farmstay">
+  <rect width="1600" height="1200" fill="#c9d6b8"/>
+  <rect y="780" width="1600" height="420" fill="#8fa36a"/>
+  <path d="M0 820 C280 740 520 880 820 800 C1100 720 1320 840 1600 760 L1600 1200 L0 1200 Z" fill="#6f8a4e"/>
+  <rect x="520" y="520" width="560" height="320" fill="#f3e2c7"/>
+  <polygon points="500,520 800,340 1100,520" fill="#7a3f24"/>
+  <rect x="740" y="680" width="120" height="160" fill="#2f2416"/>
+  <rect x="590" y="590" width="90" height="80" fill="#8fb8c9"/>
+  <rect x="920" y="590" width="90" height="80" fill="#8fb8c9"/>
+  <circle cx="1280" cy="420" r="70" fill="#f4e3a3"/>
+</svg>

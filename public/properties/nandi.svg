@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-label="Nandi Valley Cottage">
+  <rect width="1600" height="1200" fill="#d7e4ef"/>
+  <path d="M0 680 L220 420 L480 700 L760 300 L1040 640 L1280 360 L1600 620 L1600 1200 L0 1200 Z" fill="#6d7f8d"/>
+  <path d="M0 860 C300 780 700 920 1100 820 C1400 750 1600 840 1600 840 L1600 1200 L0 1200 Z" fill="#4d5d4a"/>
+  <rect x="610" y="640" width="380" height="230" fill="#efe0cc"/>
+  <polygon points="590,640 800,500 1010,640" fill="#4a3a2a"/>
+  <rect x="760" y="740" width="80" height="130" fill="#2f2416"/>
+  <circle cx="250" cy="240" r="80" fill="#f7ecc0"/>
+</svg>
