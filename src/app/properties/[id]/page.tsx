@@ -47,8 +47,23 @@ export default async function PropertyPage({
             </p>
             <h1 className="mt-2 font-serif text-4xl text-[var(--ink)]">{property.name}</h1>
             <p className="mt-2 text-[var(--muted)]">{property.address}</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              {property.maxGuests} guests · {property.bedrooms}{" "}
+              {property.bedrooms === 1 ? "bedroom" : "bedrooms"} · {property.beds}{" "}
+              {property.beds === 1 ? "bed" : "beds"} · {property.bathrooms}{" "}
+              {property.bathrooms === 1 ? "bathroom" : "bathrooms"}
+            </p>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[var(--ink)]">{property.description}</p>
+          {property.houseRules ? (
+            <div>
+              <h2 className="font-serif text-2xl">House rules</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--muted)]">
+                Check-in {property.checkInTime} · check-out {property.checkOutTime} ·{" "}
+                {property.minNights} night minimum. {property.houseRules}
+              </p>
+            </div>
+          ) : null}
           <div>
             <h2 className="font-serif text-2xl">What is included</h2>
             <ul className="mt-3 flex flex-wrap gap-2">

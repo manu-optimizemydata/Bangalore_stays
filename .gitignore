@@ -37,6 +37,10 @@ yarn-error.log*
 # generated Prisma client
 /src/generated
 
+# owner photo uploads (local stand-in for Supabase Storage)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # vercel
 .vercel
 

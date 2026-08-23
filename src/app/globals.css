@@ -18,6 +18,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-fraunces);
+  --font-pixel: var(--font-pixelify);
 }
 
 body {
@@ -25,3 +26,111 @@ body {
   color: var(--foreground);
   font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
 }
+
+.input {
+  height: 3rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0 0.75rem;
+  color: var(--ink);
+  outline: none;
+}
+
+textarea.input {
+  height: auto;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.btn-primary {
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: var(--accent);
+  padding: 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+}
+
+.pixel-floor {
+  background-color: #7f9a64;
+  background-image:
+    linear-gradient(#73905b 1px, transparent 1px),
+    linear-gradient(90deg, #73905b 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.pixel-frame {
+  border: 4px solid #2f2416;
+  box-shadow: 6px 6px 0 #2f2416;
+}
+
+.pixel-sprite {
+  image-rendering: pixelated;
+  shape-rendering: crispEdges;
+}
+
+.speech {
+  background: #fffaf3;
+  border: 3px solid #2f2416;
+  box-shadow: 3px 3px 0 #2f2416;
+  font-family: var(--font-pixel), ui-sans-serif, sans-serif;
+}
+
+.pixel-label {
+  border: 2px solid #2f2416;
+  box-shadow: 2px 2px 0 #2f2416;
+  font-family: var(--font-pixel), ui-sans-serif, sans-serif;
+}
+
+.pixel-shadow {
+  filter: drop-shadow(3px 3px 0 #2f2416);
+  transition: transform 120ms ease;
+}
+
+.amenity-pop {
+  position: absolute;
+  left: 50%;
+  top: 1.25rem;
+  opacity: 0;
+  transform: translate(-50%, 6px) scale(0.55);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.group:hover .amenity-pop,
+.group:focus-within .amenity-pop {
+  animation: amenity-pop 380ms cubic-bezier(0.18, 1.35, 0.32, 1) forwards;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+@keyframes amenity-pop {
+  to {
+    opacity: 1;
+    transform: translate(var(--dx), var(--dy)) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .amenity-pop,
+  .group:focus-within .amenity-pop {
+    animation: none;
+    opacity: 1;
+    transform: translate(var(--dx), var(--dy)) scale(1);
+  }
+}
+

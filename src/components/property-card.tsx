@@ -32,6 +32,10 @@ export function PropertyCard({ property, nights, checkIn, checkOut }: PropertyCa
               {property.city}
             </p>
             <h2 className="mt-1 font-serif text-2xl text-[var(--ink)]">{property.name}</h2>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              {property.maxGuests} guests · {property.bedrooms}{" "}
+              {property.bedrooms === 1 ? "bedroom" : "bedrooms"}
+            </p>
           </div>
           <p className="line-clamp-2 text-sm leading-6 text-[var(--muted)]">
             {property.description}

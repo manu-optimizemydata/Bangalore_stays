@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Fraunces, Pixelify_Sans, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -14,6 +14,11 @@ const sans = Source_Sans_3({
   subsets: ["latin"],
 });
 
+const pixel = Pixelify_Sans({
+  variable: "--font-pixelify",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Bangalore Stays",
@@ -25,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} h-full`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${pixel.variable} h-full`}>
       <body className="flex min-h-full flex-col font-sans">
         <SiteHeader />
         <main className="flex-1">{children}</main>

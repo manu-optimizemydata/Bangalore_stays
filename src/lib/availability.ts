@@ -1,4 +1,4 @@
-import { nightsBetween, parseDateOnly } from "@/lib/dates";
+import { nightsBetween, parseDateOnly, todayDateString } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { BookingStatus } from "@/generated/prisma/client";
 
@@ -38,10 +38,18 @@ export function overlappingBookingFilter(dates: StayDates) {
   };
 }
 
+export async function listLiveProperties() {
+  return prisma.property.findMany({
+    where: { active: true, listingStatus: "active" },
+    orderBy: { basePricePerNight: "asc" },
+  });
+}
+
 export async function listAvailableProperties(dates: StayDates | null) {
   return prisma.property.findMany({
     where: {
       active: true,
+      listingStatus: "active",
       ...(dates
         ? {
             bookings: {
@@ -54,9 +62,29 @@ export async function listAvailableProperties(dates: StayDates | null) {
   });
 }
 
+export async function listOccupiedPropertyIds(dates: StayDates | null) {
+  const today = parseDateOnly(todayDateString());
+  const bookings = await prisma.booking.findMany({
+    where: {
+      status: { in: BLOCKING_STATUSES },
+      ...(dates
+        ? {
+            checkIn: { lt: dates.checkOut },
+            checkOut: { gt: dates.checkIn },
+          }
+        : today
+          ? { checkOut: { gt: today } }
+          : {}),
+    },
+    select: { propertyId: true },
+  });
+
+  return new Set(bookings.map((booking) => booking.propertyId));
+}
+
 export async function getPropertyById(id: string) {
   return prisma.property.findFirst({
-    where: { id, active: true },
+    where: { id, active: true, listingStatus: "active" },
   });
 }
 
