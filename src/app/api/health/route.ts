@@ -12,5 +12,6 @@ export function GET() {
       process.env.DIRECT_URL || process.env.POSTGRES_URL_NON_POOLING,
     ),
     hasOwnerSecret: Boolean(process.env.OWNER_SESSION_SECRET),
+    hasAdminPassword: Boolean(process.env.ADMIN_PASSWORD),
   });
 }

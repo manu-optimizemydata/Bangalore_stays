@@ -1,4 +1,9 @@
-import type { ListingStatus, PropertyType } from "@/generated/prisma/client";
+import type {
+  BookingStatus,
+  ListingStatus,
+  PayoutStatus,
+  PropertyType,
+} from "@/generated/prisma/client";
 
 export const BANGALORE_AREA_CITIES = [
   "Bengaluru",
@@ -56,6 +61,17 @@ export function listingStatusLabel(status: ListingStatus) {
   if (status === "pending_review") return "Under review";
   if (status === "rejected") return "Needs changes";
   return "Live";
+}
+
+export function bookingStatusLabel(status: BookingStatus) {
+  if (status === "pending") return "Awaiting payment";
+  if (status === "confirmed") return "Confirmed";
+  if (status === "cancelled") return "Cancelled";
+  return "Completed";
+}
+
+export function payoutStatusLabel(status: PayoutStatus) {
+  return status === "paid" ? "Paid" : "Pending";
 }
 
 export function propertyTypeLabel(type: PropertyType) {

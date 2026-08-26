@@ -64,3 +64,18 @@ textarea.input {
 .btn-primary:disabled {
   opacity: 0.55;
 }
+
+.btn-secondary {
+  height: 3rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  padding: 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--sand);
+}

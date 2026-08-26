@@ -35,11 +35,14 @@ export function nightsBetween(checkIn: Date, checkOut: Date) {
 }
 
 export function formatStayRange(checkIn: Date, checkOut: Date) {
-  const format = new Intl.DateTimeFormat("en-IN", {
+  return `${formatDateOnly(checkIn)} – ${formatDateOnly(checkOut)}`;
+}
+
+export function formatDateOnly(date: Date) {
+  return new Intl.DateTimeFormat("en-IN", {
     day: "numeric",
     month: "short",
     year: "numeric",
     timeZone: "UTC",
-  });
-  return `${format.format(checkIn)} – ${format.format(checkOut)}`;
+  }).format(date);
 }
